@@ -54,4 +54,10 @@ public class QuerydslBasicTest {
         Assertions.assertThat(findMember.getUsername()).isEqualTo("member1");
     }
 
+    @Test
+    public void search() {
+        Member findMember = queryFactory
+                .selectFrom(member)
+    }
+
 }
