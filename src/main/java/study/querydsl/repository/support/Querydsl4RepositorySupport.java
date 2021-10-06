@@ -60,5 +60,5 @@ public abstract class Querydsl4RepositorySupport {
         return queryFactory;
     }
 
-    
+
 }
