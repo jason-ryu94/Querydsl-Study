@@ -50,7 +50,7 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom{
     /**
      * countQuery를 같이 보내는 방법, 따로 보내는 방법
      * searchPageSimple : countQuery를 같이 보내는 방법 -> fetchResults();
-     * searchPageComplex : countQuery를 따로 보내는 방법 
+     * searchPageComplex : countQuery를 따로 보내는 방법
      */
 
     @Override
