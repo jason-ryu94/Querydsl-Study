@@ -92,7 +92,7 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom{
                         teamNameEq(condition.getTeamName()),
                         ageGoe(condition.getAgeGoe()),
                         ageLoe(condition.getAgeLoe()))
-                .offset(pageable.getOffset())
+                .offset(pageable.getOffset())   // 페이징 처리를 위한 연산
                 .limit(pageable.getPageSize())
                 .fetchResults();
 
