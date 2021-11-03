@@ -48,6 +48,30 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom{
     }
 
     /**
+     * innerJoin : 조건에 맞는 것만 표시하겠다.
+     */
+
+    @Override
+    public List<MemberTeamDto> innerJoin(MemberSearchCondition condition) {
+        return queryFactory
+                .select(new QMemberTeamDto(
+                        member.id.as("memberId"),
+                        member.username,
+                        member.age,
+                        team.id.as("teamId"),
+                        team.name.as("teamName")))
+                .from(member)
+                .innerJoin(member.team, team)
+                .where(
+                        usernameEq(condition.getUsername()),
+                        teamNameEq(condition.getTeamName()),
+                        ageGoe(condition.getAgeGoe()),
+                        ageLoe(condition.getAgeLoe()))
+                .fetch();
+    }
+
+
+    /**
      * countQuery를 같이 보내는 방법, 따로 보내는 방법
      * searchPageSimple : countQuery를 같이 보내는 방법 -> fetchResults();
      * searchPageComplex : countQuery를 따로 보내는 방법

@@ -29,6 +29,11 @@ public class MemberRepositoryTest {
         Member member = new Member("member1", 10);
         memberRepository.save(member);
 
+        System.out.println("em.toString() = " + em.toString());
+        em.flush();
+        em.clear();
+        System.out.println("em.toString() = " + em.contains(member));
+
         Member findMember = memberRepository.findById(member.getId()).get();
         assertThat(findMember).isEqualTo(member);
 
